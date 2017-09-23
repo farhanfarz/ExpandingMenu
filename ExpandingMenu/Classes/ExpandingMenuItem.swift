@@ -81,6 +81,7 @@ public class ExpandingMenuItem: UIView {
         let baseButton = UIButton()
         baseButton.setImage(backgroundImage, forState: UIControlState.Normal)
         baseButton.setImage(backgroundHighlightedImage, forState: UIControlState.Highlighted)
+        baseButton.setImage(highlightedImage, forState: UIControlState.Selected)
         baseButton.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(baseButton)
         
@@ -143,7 +144,8 @@ public class ExpandingMenuItem: UIView {
     }
     
     // MARK: - Tapped Action
-    func tapped() {
+    func tapped(sender:UIButton) {
+        sender.selected = !sender.selected
         self.delegate?.menuItemTapped(self)
         self.tappedAction?()
     }
