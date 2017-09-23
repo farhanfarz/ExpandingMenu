@@ -321,6 +321,9 @@ public class ExpandingMenuButton: UIView, UIGestureRecognizerDelegate {
         
         UIView.animateWithDuration(0.15, delay: 0.35, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
             self.bottomView.alpha = 0.0
+            for item in self.menuItems {
+                item.alpha = 0.0
+            }
             }, completion: { (finished) -> Void in
                 // Remove the items from the superview
                 //
